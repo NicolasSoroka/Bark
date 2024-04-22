@@ -1,0 +1,3 @@
+  const [scrolling, setScrolling] = useState(false)
+  
+  scrolling?document.body.style.overflow = "hidden" : document.body.style.overflow = "auto";

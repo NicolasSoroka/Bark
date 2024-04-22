@@ -1,0 +1,7 @@
+<Image
+            src={'/assets/Frutas_izq.png'}
+            alt="Frutas_izq"
+            style={{ width: '100%', height: 'auto' }}
+            width={340}
+            height={529}
+          />

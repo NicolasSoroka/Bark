@@ -1,0 +1,13 @@
+  const handleThemeChange = () => {
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      setMode("light");
+      document.documentElement.classList.add("light");
+    } else {
+      setMode("dark");
+      document.documentElement.classList.add("dark");
+    }
+  };

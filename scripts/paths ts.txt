@@ -1,0 +1,13 @@
+    "paths": {
+      "@/components": ["components"],
+      "@/containers": ["containers"],
+      "@/lib/*": ["lib/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/types/*": ["types/*"],
+      "@/context/*": ["context/*"],
+      "@/styles/*": ["styles/*"],
+      "@/*" : ["./src/*"]
+    }
+
+
+paths relativos

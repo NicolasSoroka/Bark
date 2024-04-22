@@ -1,0 +1,20 @@
+const fetchRepos = async (username) => {
+  try {
+    const response = await fetch(`https://api.github.com/users/${username}/repos`);
+    const data = await response.json();
+    const filteredData = data.map(repo => ({
+      name: repo.name,
+      url: repo.html_url,
+      description: repo.description,
+      language: repo.language
+    }));
+    return filteredData;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// Llamamos a la función y pasamos el nombre de usuario como argumento
+fetchRepos('octocat').then(data => {
+  console.log(data);
+});

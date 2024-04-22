@@ -1,0 +1,29 @@
+let [searchParams, setSearchParams] = useSearchParams();
+
+  // searchParams is a URLSearchParams object.
+  // See https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
+  let user = searchParams.get("user");
+
+  let [userData, setUserData] = React.useState<any>(null);
+
+  React.useEffect(() => {
+    let abortController = new AbortController();
+
+    async function getGitHubUser() {
+      let response = await fetch(`https://api.github.com/users/${user}`, {
+        signal: abortController.signal,
+      });
+      if (!abortController.signal.aborted) {
+        let data = await response.json();
+        setUserData(data);
+      }
+    }
+
+    if (user) {
+      getGitHubUser();
+    }
+
+    return () => {
+      abortController.abort();
+    };
+  }, [user]);

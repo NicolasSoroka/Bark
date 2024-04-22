@@ -1,0 +1,34 @@
+li > span > texto
+  
+
+&__link {
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: italic;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #333;
+    text-transform: capitalize;
+    cursor: pointer;
+
+    & > span {
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 1px;
+        background-color: black;
+        transition: 0.2s ease-out;
+      }
+
+      &:hover:after {
+        left: 0;
+        width: 100%;
+      }
+    }
+  }

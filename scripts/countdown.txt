@@ -1,0 +1,36 @@
+    function countdown() {
+    let endDate = new Date(2022,10,25, 14, 54);
+
+    let endTime = endDate.getTime();
+
+      let todayDate = new Date();
+      let todayTime = todayDate.getTime();
+      let remainingTime = endTime - todayDate;
+
+      let oneMin = 60 * 1000;
+      let oneHr = 60 * oneMin;
+      let oneDay = 24 * oneHr;
+
+      let addZeroes = num => num < 10 ? `0${num}` : num ;
+
+      if (remainingTime < 0) {
+        document.getElementById('first').style.display = "none";
+        document.getElementById('second').style.display = "block";
+        console.log('ok')
+        clearInterval(i);
+      }
+
+      else {
+       let hrsLeft = Math.floor((remainingTime % oneDay) / oneHr); 
+       let minsLeft = Math.floor((remainingTime % oneHr) / oneMin); 
+       let secsLeft = Math.floor((remainingTime % oneMin) / 1000);
+
+        hoursBox.textContent = addZeroes(hrsLeft);
+        minutesBox.textContent = addZeroes(minsLeft);
+        secondsBox.textContent = addZeroes(secsLeft);
+      }
+      
+      let i = setInterval(countdown, 1000);
+    }
+    countdown();
+};
