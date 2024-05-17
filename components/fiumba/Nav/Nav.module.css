@@ -1,0 +1,132 @@
+.wrapper {
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1440px;
+  height: 100vh;
+  clip-path: circle(25px at calc(100% - 45px) 45px);
+  transition: all 0.3s ease-in-out;
+
+  @media (--large) {
+    position: relative;
+    margin: 0 auto;
+    padding: 0 20px;
+    clip-path: none;
+    flex-direction: row;
+    height: 80px;
+  }
+
+  &__menuOpen {
+    clip-path: circle(75%);
+  }
+
+  &__menuBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    line-height: 50px;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4158d0, #c850c0, #ffcc70);
+    transition: all 0.3s ease;
+
+    @media (--large) {
+      display: none;
+    }
+
+    &__menuOpen {
+      font-size: 30px;
+      line-height: 55px;
+      background: #fff;
+      color: #4158d8;
+    }
+  }
+
+  &__logo {
+    position: relative;
+    width: 300px;
+    height: 100px;
+    margin-bottom: 30px;
+
+    @media (--large) {
+      width: 200px;
+      height: 75px;
+      margin: 0 0 0 30px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 25%;
+
+    @media (--large) {
+      position: relative;
+      flex-direction: row;
+      top: unset;
+    }
+
+    & ul {
+      list-style-type: none;
+      text-align: center;
+
+      @media (--large) {
+        display: flex;
+      }
+
+      & li {
+        margin: 15px 0;
+        transition: transform 0.2s ease-out;
+
+        @media (--large) {
+          margin: 0 10px;
+
+          &:hover {
+            transform: scale(1);
+          }
+        }
+      }
+
+      & a {
+        position: relative;
+        font-family: "Poppins";
+        font-weight: 400;
+        color: #fff;
+        font-size: 16px;
+        text-decoration: none;
+        padding: 0 10px;
+        opacity: 0.7;
+
+        &:after {
+          content: '';
+          position: absolute;
+          background-color: #fff;
+          height: 3px;
+          width: 0;
+          left: 0;
+          bottom: -10px;
+          transition: 0.2s;
+        }
+
+        &:hover {
+          opacity: 1;
+        }
+
+        &:hover:after {
+          width: 40%;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}

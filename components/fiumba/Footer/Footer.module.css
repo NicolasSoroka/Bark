@@ -1,0 +1,16 @@
+.container {
+  position: relative;
+  width: 100%;
+  background: #25254b;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > p {
+    color: #fff;
+    text-align: center;
+    font-size: 0.7em;
+    opacity: 0.8;
+  } 
+}
